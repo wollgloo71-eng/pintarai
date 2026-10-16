@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PintarAI menyediakan alat gratis untuk membuat CV, surat lamaran kerja, dan ide usaha dengan mudah.">
+<meta name="theme-color" content="#111827">
+<title>PintarAI — Alat Gratis untuk Kerja & Usaha</title>
+<style>
+:root{--bg:#f6f7fb;--ink:#172033;--muted:#65708a;--brand:#6d5dfc;--brand2:#18b6a4;--card:#fff;--line:#e5e8f1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(130deg,#111827,#29205f 65%,#4c35a8);color:white;padding:24px 18px 48px}
+nav,.wrap{max-width:1000px;margin:auto}nav{display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{font-size:1.3rem;font-weight:850;letter-spacing:-.5px}.logo span{color:#8ef0dc}nav a{color:#e8eaff;text-decoration:none;font-size:.92rem}
+.hero{max-width:1000px;margin:38px auto 0}.eyebrow{color:#a7f3e8;font-weight:700;font-size:.83rem;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(2rem,7vw,3.6rem);line-height:1.08;letter-spacing:-1.5px;max-width:720px;margin:12px 0}.hero p{color:#d9def5;max-width:650px;font-size:1.05rem}.pill{display:inline-block;background:#ffffff1c;border:1px solid #ffffff30;padding:7px 12px;border-radius:99px;font-size:.85rem;margin-top:8px}
+main{max-width:1000px;margin:-20px auto 0;padding:0 16px 48px;position:relative}.section-title{margin:34px 0 14px}.section-title h2{margin:0;font-size:1.55rem}.section-title p{margin:5px 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 28px #17203308}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#eeedff;font-size:1.5rem}.card h3{margin:13px 0 5px}.card p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+button,.button{border:0;background:var(--brand);color:white;padding:12px 15px;border-radius:11px;font-weight:750;cursor:pointer;font-size:.95rem;text-decoration:none;display:inline-block}button.secondary{background:#eef0f7;color:#303951}button:hover,.button:hover{filter:brightness(.96)}.tool{margin-top:18px}.tool[hidden]{display:none}.tool-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.tool-head h3{margin:0}label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 6px}input,textarea,select{width:100%;border:1px solid #d9deeb;border-radius:10px;padding:12px;font:inherit;background:white;color:var(--ink)}textarea{min-height:100px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 14px}.output{white-space:pre-wrap;background:#f7f8fc;border:1px dashed #cbd1e1;border-radius:12px;padding:15px;margin-top:16px;min-height:70px;overflow-wrap:anywhere}.hint{color:var(--muted);font-size:.85rem}.notice{background:#fff8e7;border:1px solid #f3dfad;border-radius:12px;padding:13px;color:#6b5315;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:25px 16px;color:var(--muted);font-size:.9rem;text-align:center}footer a{color:inherit}.ad-note{font-size:.8rem;color:var(--muted);margin-top:14px}
+@media(max-width:520px){header{padding-top:18px}.hero{margin-top:30px}nav a{font-size:.82rem}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+<nav><div class="logo">Pintar<span>AI</span></div><a href="#alat">Alat gratis ↓</a></nav>
+<section class="hero"><div class="eyebrow">Alat gratis untuk langkah berikutnya</div><h1>Kerja lebih siap.<br>Usaha lebih berani.</h1><p>Gunakan alat sederhana untuk menyusun CV, menulis surat lamaran, dan menemukan ide usaha. Gratis, langsung dari browser HP kamu.</p><span class="pill">✓ Tanpa login · ✓ Ramah HP · ✓ Gratis</span></section>
+</header>
+<main>
+<section class="section-title" id="alat"><h2>Mulai dari sini</h2><p>Pilih alat yang kamu butuhkan. Isi beberapa detail, lalu buat hasilnya.</p></section>
+<div class="grid">
+<article class="card"><div class="icon">📄</div><h3>Pembuat CV sederhana</h3><p>Susun draf CV yang rapi untuk melamar pekerjaan.</p><button onclick="openTool('cv')">Buat CV</button></article>
+<article class="card"><div class="icon">✉️</div><h3>Surat lamaran kerja</h3><p>Buat surat lamaran yang sopan dan mudah diedit.</p><button onclick="openTool('surat')">Buat surat</button></article>
+<article class="card"><div class="icon">💡</div><h3>Ide usaha sesuai modal</h3><p>Dapatkan inspirasi usaha berdasarkan modal dan minatmu.</p><button onclick="openTool('usaha')">Cari ide usaha</button></article>
+</div>
+<section class="card tool" id="tool-cv" hidden>
+<div class="tool-head"><h3>📄 Pembuat CV</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
+<p class="hint">Isi data secukupnya. Hindari memasukkan nomor identitas atau informasi rahasia.</p>
+<div class="form-grid"><div><label for="cvNama">Nama</label><input id="cvNama" placeholder="Nama lengkap"></div><div><label for="cvKontak">Email/telepon (opsional)</label><input id="cvKontak" placeholder="Kontak yang ingin dicantumkan"></div><div><label for="cvTarget">Posisi yang dilamar</label><input id="cvTarget" placeholder="Contoh: Staf toko"></div><div><label for="cvPendidikan">Pendidikan terakhir</label><input id="cvPendidikan" placeholder="Contoh: SMA"></div></div>
+<label for="cvSkill">Keahlian</label><textarea id="cvSkill" placeholder="Contoh: komunikasi, Excel, pelayanan pelanggan"></textarea><label for="cvPengalaman">Pengalaman atau kegiatan (boleh kosong)</label><textarea id="cvPengalaman" placeholder="Pengalaman kerja, magang, organisasi, atau proyek"></textarea>
+<button onclick="makeCV()">Buat draf CV</button><div class="output" id="cvOut" aria-live="polite">Hasil akan muncul di sini.</div><button class="secondary" onclick="copyOut('cvOut')">Salin hasil</button>
+</section>
+<section class="card tool" id="tool-surat" hidden>
+<div class="tool-head"><h3>✉️ Surat lamaran kerja</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
+<div class="form-grid"><div><label for="sNama">Nama kamu</label><input id="sNama" placeholder="Nama lengkap"></div><div><label for="sPerusahaan">Nama perusahaan</label><input id="sPerusahaan" placeholder="Nama perusahaan"></div><div><label for="sPosisi">Posisi yang dilamar</label><input id="sPosisi" placeholder="Contoh: Admin"></div><div><label for="sLatar">Pengalaman/keunggulan</label><input id="sLatar" placeholder="Contoh: teliti dan cepat belajar"></div></div>
+<button onclick="makeSurat()">Buat surat</button><div class="output" id="sOut" aria-live="polite">Hasil akan muncul di sini.</div><button class="secondary" onclick="copyOut('sOut')">Salin hasil</button>
+</section>
+<section class="card tool" id="tool-usaha" hidden>
+<div class="tool-head"><h3>💡 Pencari ide usaha</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
+<div class="form-grid"><div><label for="uModal">Modal awal</label><select id="uModal"><option value="0">Rp0–Rp100 ribu</option><option value="100">Rp100 ribu–Rp500 ribu</option><option value="500">Rp500 ribu ke atas</option></select></div><div><label for="uMinat">Minat/kemampuan</label><select id="uMinat"><option>Digital dan internet</option><option>Makanan dan minuman</option><option>Kerajinan dan desain</option><option>Jasa dan komunikasi</option><option>Belum tahu</option></select></div></div>
+<button onclick="makeUsaha()">Cari ide</button><div class="output" id="uOut" aria-live="polite">Ide akan muncul di sini.</div><button class="secondary" onclick="copyOut('uOut')">Salin hasil</button><p class="hint">Ide adalah inspirasi, bukan jaminan keuntungan. Periksa kebutuhan pasar dan biaya sebelum mulai.</p>
+</section>
+<section class="section-title"><h2>Tips singkat</h2><p>Gunakan hasil sebagai draf. Periksa kembali nama, fakta, dan detail sebelum mengirim lamaran atau menjalankan usaha.</p></section>
+<div class="notice">PintarAI adalah alat bantu umum, bukan layanan rekrutmen atau penasihat keuangan. Jangan masukkan data pribadi sensitif.</div>
+<p class="ad-note">Transparansi: situs ini dapat menampilkan iklan jika kelak diterima dalam program iklan yang sesuai. Saat ini tidak ada iklan yang ditampilkan.</p>
+</main>
+<footer>© <span id="year"></span> PintarAI · <a href="privasi.html">Kebijakan Privasi</a> · <a href="tentang.html">Tentang</a> · <a href="kontak.html">Kontak</a></footer>
+<script>
+const $=id=>document.getElementById(id);
+function openTool(name){closeTools();$('tool-'+name).hidden=false;$('tool-'+name).scrollIntoView({behavior:'smooth',block:'start'})}
+function closeTools(){document.querySelectorAll('.tool').forEach(el=>el.hidden=true)}
+function val(id){return $(id).value.trim()}
+function makeCV(){
+const n=val('cvNama')||'[Nama lengkap]', c=val('cvKontak'), t=val('cvTarget')||'[Posisi yang dilamar]', p=val('cvPendidikan')||'[Pendidikan terakhir]', sk=val('cvSkill')||'[Tambahkan keahlian yang relevan]', ex=val('cvPengalaman')||'[Tambahkan pengalaman, proyek, atau kegiatan yang benar-benar pernah dilakukan]';
+$('cvOut').textContent=`${n}\n${c}\n\nPROFIL\nKandidat untuk posisi ${t}. Memiliki latar belakang pendidikan ${p} dan ingin berkontribusi serta terus mengembangkan kemampuan.\n\nPENDIDIKAN\n${p}\n\nKEAHLIAN\n${sk}\n\nPENGALAMAN / KEGIATAN\n${ex}\n\nCatatan: Sesuaikan draf ini dengan pengalaman nyata dan periksa kembali sebelum dikirim.`
+}
+function makeSurat(){
+const n=val('sNama')||'[Nama lengkap]', co=val('sPerusahaan')||'[Nama perusahaan]', pos=val('sPosisi')||'[Posisi]', lat=val('sLatar')||'kemauan belajar dan bekerja sama';
+$('sOut').textContent=`Kepada Yth. Tim Rekrutmen ${co}\n\nPerihal: Lamaran Pekerjaan – ${pos}\n\nDengan hormat,\n\nSaya ${n} bermaksud mengajukan lamaran untuk posisi ${pos} di ${co}. Saya memiliki keunggulan dalam ${lat} dan siap mempelajari tanggung jawab pekerjaan dengan sungguh-sungguh.\n\nSaya berharap mendapat kesempatan untuk mengikuti proses seleksi dan menjelaskan kualifikasi saya lebih lanjut. Terima kasih atas waktu dan pertimbangannya.\n\nHormat saya,\n${n}\n\nCatatan: Tambahkan kualifikasi yang benar-benar sesuai dengan diri kamu sebelum mengirim.`
+}
+function makeUsaha(){
+const m=val('uModal'), i=val('uMinat');let ideas=[];
+if(i==='Digital dan internet') ideas=m==='0'?['Jasa mengetik atau merapikan dokumen dengan perangkat yang sudah ada','Membuat konten informatif untuk usaha lokal','Menjual template digital sederhana setelah memvalidasi kebutuhan']:['Jasa desain sederhana untuk UMKM','Jasa pengelolaan media sosial skala kecil','Membuat produk digital berdasarkan kebutuhan calon pembeli'];
+else if(i==='Makanan dan minuman') ideas=m==='0'?['Membuat konten resep hemat tanpa harus menjual makanan','Riset pre-order kecil sebelum membeli bahan','Membantu promosi usaha makanan lokal']:['Uji coba pre-order dengan perhitungan biaya','Paket camilan berdasarkan pesanan','Konten resep dan rekomendasi alat dapur'];
+else if(i==='Kerajinan dan desain') ideas=m==='0'?['Membuat contoh desain portofolio gratis','Menawarkan jasa desain berdasarkan pesanan','Menguji minat terhadap produk digital']:['Jasa desain sesuai pesanan','Produk kerajinan sistem pre-order','Template undangan digital'];
+else if(i==='Jasa dan komunikasi') ideas=m==='0'?['Membantu mengetik dokumen','Membantu usaha lokal menulis deskripsi produk','Jasa admin sederhana sesuai kemampuan']:['Jasa admin media sosial','Jasa penulisan deskripsi produk','Jasa bantuan dokumen dan presentasi'];
+else ideas=m==='0'?['Jasa berbasis keterampilan yang sudah kamu punya','Konten tutorial tentang hal yang kamu kuasai','Membantu promosi usaha lokal']:['Jasa untuk usaha lokal','Produk digital sederhana','Penjualan berbasis pre-order setelah riset'];
+$('uOut').textContent=`Ide sesuai minat: ${i}\n\n${ideas.map((x,j)=>(j+1)+'. '+x).join('\n')}\n\nLangkah pertama: pilih satu ide, tanyakan kebutuhan kepada calon pengguna, hitung biaya dan waktu, lalu uji dalam skala kecil. Jangan menganggap ide ini sebagai jaminan penghasilan.`
+}
+async function copyOut(id){const text=$(id).textContent;try{await navigator.clipboard.writeText(text);alert('Hasil disalin.')}catch(e){alert('Salin teks hasil secara manual.');}}
+$('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
