@@ -19,17 +19,6 @@ button,.button{border:0;background:var(--brand);color:white;padding:12px 15px;bo
 footer{border-top:1px solid var(--line);padding:25px 16px;color:var(--muted);font-size:.9rem;text-align:center}footer a{color:inherit}.ad-note{font-size:.8rem;color:var(--muted);margin-top:14px}
 @media(max-width:520px){header{padding-top:18px}.hero{margin-top:30px}nav a{font-size:.82rem}.card{padding:17px}}
 </style>
-/* Perbaikan warna teks hasil */
-.result,
-.result pre,
-.result textarea {
-  color: #f5f3ff !important;
-  background-color: #0d0a1c !important;}.result pre {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;}
-.result textarea {
-  width: 100%;
-  min-height: 120px;}
 </head>
   <meta name="google-site-verification" content="hDNuvg1kbReXL0qLF4QwXi8oJDoDABdxebPxylGr8P0" />
 <body>
@@ -93,7 +82,6 @@ $('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -106,14 +94,12 @@ $('year').textContent=new Date().getFullYear();
 :root {
   --bg:#0b0818; --panel:#151027; --line:#30264b;
   --purple:#a78bfa; --blue:#67e8f9; --text:#f5f3ff;
-  --muted:#aaa4c1; --green:#86efac;
-}
+  --muted:#aaa4c1; --green:#86efac;}
 *{box-sizing:border-box}
 body{
   margin:0;background:radial-gradient(ellipse at top,#251447 0,#0b0818 48%);
   color:var(--text);font-family:system-ui,-apple-system,sans-serif;
-  min-height:100vh;line-height:1.6
-}
+  min-height:100vh;line-height:1.6}
 header{padding:24px 18px 12px;text-align:center}
 .logo{font-size:32px;font-weight:900;letter-spacing:-1px}
 .logo span{color:var(--blue)}
@@ -147,20 +133,18 @@ footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
 .ad-slot{border:1px dashed #51436e;border-radius:12px;text-align:center;color:var(--muted);padding:18px;margin:22px 0;font-size:12px}
 a{color:var(--blue)}
 @media(max-width:500px){.grid{grid-template-columns:1fr}.panel{padding:15px}.tabs{gap:5px}.tab{font-size:12px}}
-</style>
+</style>  
 </head>
 <body>
 <header>
   <div class="logo">Pintar<span>AI</span> ✦</div>
   <div class="tagline">Teman kreatif untuk ide tanpa batas.</div>
 </header>
-
 <section class="hero">
   <span class="pill">✦ CREATIVE TOOLS</span>
   <h1>Ide hebat dimulai dari <span>satu klik.</span></h1>
   <p>Buat caption, prompt, konten SEO, dan olah teks dengan praktis. Gratis untuk dicoba.</p>
 </section>
-
 <main>
   <div class="tabs">
     <button class="tab active" data-tab="caption">✍️ Caption</button>
@@ -169,7 +153,6 @@ a{color:var(--blue)}
     <button class="tab" data-tab="text">📝 Teks</button>
     <button class="tab" data-tab="chat">🤖 Chat Demo</button>
   </div>
-
   <section class="panel active" id="caption">
     <h2>Generator Caption</h2>
     <p class="desc">Buat caption promosi atau media sosial yang menarik.</p>
@@ -188,7 +171,6 @@ a{color:var(--blue)}
     <button class="primary" onclick="makeCaption()">Buat Caption ✨</button>
     <div class="result" id="captionResult"></div>
   </section>
-
   <section class="panel" id="prompt">
     <h2>Generator Prompt AI</h2>
     <p class="desc">Susun ide prompt untuk gambar atau video AI.</p>
@@ -207,7 +189,6 @@ a{color:var(--blue)}
     <button class="primary" onclick="makePrompt()">Buat Prompt ✨</button>
     <div class="result" id="promptResult"></div>
   </section>
-
   <section class="panel" id="seo">
     <h2>Generator SEO</h2>
     <p class="desc">Buat ide judul, deskripsi, dan kata kunci untuk konten.</p>
@@ -218,7 +199,6 @@ a{color:var(--blue)}
     <button class="primary" onclick="makeSEO()">Buat Konten SEO ✨</button>
     <div class="result" id="seoResult"></div>
   </section>
-
   <section class="panel" id="text">
     <h2>Pengolah Teks</h2>
     <p class="desc">Ubah huruf, rapikan spasi, dan hitung kata dengan cepat.</p>
@@ -233,7 +213,6 @@ a{color:var(--blue)}
     <p class="small" id="count">0 kata · 0 karakter</p>
     <div class="result" id="textResult"></div>
   </section>
-
   <section class="panel" id="chat">
     <h2>Chat PintarAI</h2>
     <p class="desc">Demo percakapan sederhana. Belum terhubung ke model AI.</p>
@@ -243,23 +222,20 @@ a{color:var(--blue)}
     <div class="result" id="chatResult"></div>
     <p class="small">Versi demo ini memberikan saran berdasarkan kata kunci, bukan jawaban AI langsung.</p>
   </section>
-
   <div class="ad-slot">
     RUANG IKLAN<br>
     <span>Slot ini belum menampilkan iklan. Bisa dipersiapkan untuk monetisasi setelah memenuhi persyaratan platform iklan.</span>
   </div>
   <p class="small" style="text-align:center">PintarAI membantu proses kreatif. Periksa kembali hasil sebelum dipublikasikan.</p>
 </main>
-
 <footer>© 2026 PintarAI · Dibuat untuk mendukung kreativitas ✦</footer>
-
 <script>
 document.querySelectorAll(".tab").forEach(button => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
-    button.classList.add("active");
-    document.getElementById(button.dataset.tab).classList.add("active");
+  document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  button.classList.add("active");
+  document.getElementById(button.dataset.tab).classList.add("active");
   });
 });
 
