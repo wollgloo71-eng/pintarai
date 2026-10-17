@@ -496,4 +496,51 @@ ${val("nama")}`;
         const msg = val("pesan");
         const lower = msg.toLowerCase();
         let answer;
-        if (l
+
+        if (lower.includes("usaha") || lower.includes("bisnis")) {
+          answer = "Mulailah dengan memilih satu ide usaha, mengenali calon pelanggan, dan menguji minat mereka dengan biaya kecil.";
+        } else if (lower.includes("cv") || lower.includes("kerja") || lower.includes("lamaran")) {
+          answer = "Buat CV yang berisi kontak, pendidikan, keahlian, dan pengalaman yang relevan dengan pekerjaan yang kamu lamar.";
+        } else if (lower.includes("caption") || lower.includes("promosi")) {
+          answer = "Caption promosi yang baik menarik perhatian, menjelaskan manfaat produk dengan jujur, lalu mengajak pembaca melakukan tindakan.";
+        } else if (lower.includes("seo") || lower.includes("website")) {
+          answer = "Gunakan judul yang jelas, deskripsi yang relevan, dan konten bermanfaat. Pastikan website mudah dibuka di HP.";
+        } else {
+          answer = "Terima kasih sudah mencoba PintarAI! Aku chatbot demo dengan jawaban sederhana, belum terhubung ke AI online. Kamu juga bisa mencoba alat CV, ide usaha, caption, prompt, SEO, dan pengolah teks.";
+        }
+
+        output = "Kamu: " + msg + "\n\nPintarAI Demo: " + answer;
+      }
+      break;
+  }
+
+  showResult(output);
+}
+
+async function copyResult() {
+  const result = document.getElementById("result");
+  const text = result.textContent;
+
+  if (!text.trim()) {
+    alert("Buat hasilnya dulu, ya.");
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("Hasil berhasil disalin!");
+  } catch (err) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    const ok = document.execCommand("copy");
+    area.remove();
+    alert(ok ? "Hasil berhasil disalin!" : "Salin hasil secara manual.");
+  }
+}
+</script>
+</body>
+</html>
+
+    
