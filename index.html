@@ -489,30 +489,42 @@ ${val("nama")}`;
         else output = `Statistik teks:\nKata: ${(text.match(/\S+/g) || []).length}\nKarakter (termasuk spasi): ${text.length}\nKarakter (tanpa spasi): ${text.replace(/\s/g,"").length}\n\nTeks asli:\n${text}`;
       }
       break;
+      
+case "chat": {
+  if (!required("pesan")) return;
 
-    case "chat":
-      if (!required("pesan")) return;
+  const msg = val("pesan").trim();
+
+  try {
+    showResult("PintarAI sedang berpikir...");
+
+    const response = await fetch(
+      "https://soft-lab-7cc7pintarai-api.wollgloo71.workers.dev/",
       {
-        const msg = val("pesan");
-        const lower = msg.toLowerCase();
-        let answer;
-
-        if (lower.includes("usaha") || lower.includes("bisnis")) {
-          answer = "Mulailah dengan memilih satu ide usaha, mengenali calon pelanggan, dan menguji minat mereka dengan biaya kecil.";
-        } else if (lower.includes("cv") || lower.includes("kerja") || lower.includes("lamaran")) {
-          answer = "Buat CV yang berisi kontak, pendidikan, keahlian, dan pengalaman yang relevan dengan pekerjaan yang kamu lamar.";
-        } else if (lower.includes("caption") || lower.includes("promosi")) {
-          answer = "Caption promosi yang baik menarik perhatian, menjelaskan manfaat produk dengan jujur, lalu mengajak pembaca melakukan tindakan.";
-        } else if (lower.includes("seo") || lower.includes("website")) {
-          answer = "Gunakan judul yang jelas, deskripsi yang relevan, dan konten bermanfaat. Pastikan website mudah dibuka di HP.";
-        } else {
-          answer = "Terima kasih sudah mencoba PintarAI! Aku chatbot demo dengan jawaban sederhana, belum terhubung ke AI online. Kamu juga bisa mencoba alat CV, ide usaha, caption, prompt, SEO, dan pengolah teks.";
-        }
-
-        output = "Kamu: " + msg + "\n\nPintarAI Demo: " + answer;
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: msg })
       }
-      break;
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "AI belum bisa menjawab.");
+    }
+
+    showResult("Kamu: " + msg + "\n\nPintarAI: " + data.answer);
+  } catch (error) {
+    showResult("Gagal menghubungi AI: " + error.message);
   }
+
+  return;
+        }
+          
+
+    
 
   showResult(output);
 }
