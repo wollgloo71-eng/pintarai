@@ -82,3 +82,274 @@ $('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b25">
+<meta name="description" content="PintarAI menyediakan alat gratis untuk membuat caption, prompt AI, konten SEO, dan mengolah teks secara praktis.">
+<title>PintarAI — Kreativitas Tanpa Batas</title>
+<style>
+:root {
+  --bg:#0b0818; --panel:#151027; --line:#30264b;
+  --purple:#a78bfa; --blue:#67e8f9; --text:#f5f3ff;
+  --muted:#aaa4c1; --green:#86efac;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:radial-gradient(ellipse at top,#251447 0,#0b0818 48%);
+  color:var(--text);font-family:system-ui,-apple-system,sans-serif;
+  min-height:100vh;line-height:1.6
+}
+header{padding:24px 18px 12px;text-align:center}
+.logo{font-size:32px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.tagline{color:var(--muted);font-size:14px}
+.hero{max-width:760px;margin:24px auto;padding:0 18px;text-align:center}
+.hero h1{font-size:clamp(30px,7vw,49px);line-height:1.15;margin:12px 0}
+.hero h1 span{color:var(--purple)}
+.hero p{color:var(--muted)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:5px 12px;color:var(--blue);font-size:12px}
+main{max-width:850px;margin:auto;padding:10px 16px 50px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
+.tab{background:var(--panel);color:var(--muted);border:1px solid var(--line);padding:12px 5px;border-radius:12px;font-weight:700;cursor:pointer}
+.tab.active{background:#35205b;color:white;border-color:var(--purple)}
+.panel{display:none;background:rgba(21,16,39,.95);border:1px solid var(--line);padding:20px;border-radius:20px}
+.panel.active{display:block}
+h2{font-size:21px;margin:0 0 5px}
+.desc{font-size:13px;color:var(--muted);margin:0 0 20px}
+label{display:block;font-size:13px;color:#d9d4eb;margin:14px 0 6px}
+input,select,textarea{width:100%;background:#0c0919;color:white;border:1px solid #3b3155;border-radius:10px;padding:12px;font:inherit;font-size:14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+textarea{resize:vertical;min-height:100px}
+button{font:inherit}
+.primary{width:100%;border:0;border-radius:11px;margin-top:15px;padding:13px;background:linear-gradient(100deg,#8b5cf6,#6366f1);color:white;font-weight:800;cursor:pointer}
+.secondary{border:1px solid var(--line);background:#211836;color:white;padding:9px 12px;border-radius:9px;cursor:pointer}
+.result{display:none;margin-top:18px;padding:14px;background:#0d0a1c;border:1px solid var(--line);border-radius:12px;overflow-wrap:anywhere}
+.result pre{white-space:pre-wrap;font:inherit;margin:0}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.small{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
+.ad-slot{border:1px dashed #51436e;border-radius:12px;text-align:center;color:var(--muted);padding:18px;margin:22px 0;font-size:12px}
+a{color:var(--blue)}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.panel{padding:15px}.tabs{gap:5px}.tab{font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Pintar<span>AI</span> ✦</div>
+  <div class="tagline">Teman kreatif untuk ide tanpa batas.</div>
+</header>
+
+<section class="hero">
+  <span class="pill">✦ CREATIVE TOOLS</span>
+  <h1>Ide hebat dimulai dari <span>satu klik.</span></h1>
+  <p>Buat caption, prompt, konten SEO, dan olah teks dengan praktis. Gratis untuk dicoba.</p>
+</section>
+
+<main>
+  <div class="tabs">
+    <button class="tab active" data-tab="caption">✍️ Caption</button>
+    <button class="tab" data-tab="prompt">🎨 Prompt AI</button>
+    <button class="tab" data-tab="seo">🔎 SEO</button>
+    <button class="tab" data-tab="text">📝 Teks</button>
+    <button class="tab" data-tab="chat">🤖 Chat Demo</button>
+  </div>
+
+  <section class="panel active" id="caption">
+    <h2>Generator Caption</h2>
+    <p class="desc">Buat caption promosi atau media sosial yang menarik.</p>
+    <label>Nama produk atau topik</label>
+    <input id="product" placeholder="Contoh: tumbler aesthetic">
+    <label>Platform</label>
+    <select id="platform">
+      <option>TikTok</option><option>Instagram</option>
+      <option>Facebook</option><option>WhatsApp</option>
+    </select>
+    <label>Gaya bahasa</label>
+    <select id="style">
+      <option>Aesthetic</option><option>Lucu</option>
+      <option>Elegan</option><option>Persuasif</option>
+    </select>
+    <button class="primary" onclick="makeCaption()">Buat Caption ✨</button>
+    <div class="result" id="captionResult"></div>
+  </section>
+
+  <section class="panel" id="prompt">
+    <h2>Generator Prompt AI</h2>
+    <p class="desc">Susun ide prompt untuk gambar atau video AI.</p>
+    <label>Subjek utama</label>
+    <input id="subject" placeholder="Contoh: tumbler putih di meja kayu">
+    <label>Jenis konten</label>
+    <select id="media"><option>Gambar</option><option>Video</option></select>
+    <label>Gaya visual</label>
+    <select id="visual">
+      <option>Aesthetic cinematic</option><option>Realistis dan natural</option>
+      <option>Minimalis premium</option><option>3D futuristik</option>
+      <option>Anime</option>
+    </select>
+    <label>Detail tambahan</label>
+    <input id="detail" placeholder="Contoh: cahaya matahari sore">
+    <button class="primary" onclick="makePrompt()">Buat Prompt ✨</button>
+    <div class="result" id="promptResult"></div>
+  </section>
+
+  <section class="panel" id="seo">
+    <h2>Generator SEO</h2>
+    <p class="desc">Buat ide judul, deskripsi, dan kata kunci untuk konten.</p>
+    <label>Topik konten</label>
+    <input id="topic" placeholder="Contoh: tips memilih tumbler">
+    <label>Target pembaca</label>
+    <input id="audience" placeholder="Contoh: anak muda">
+    <button class="primary" onclick="makeSEO()">Buat Konten SEO ✨</button>
+    <div class="result" id="seoResult"></div>
+  </section>
+
+  <section class="panel" id="text">
+    <h2>Pengolah Teks</h2>
+    <p class="desc">Ubah huruf, rapikan spasi, dan hitung kata dengan cepat.</p>
+    <label>Masukkan teks</label>
+    <textarea id="rawText" placeholder="Tulis atau tempel teks di sini..."></textarea>
+    <div class="grid">
+      <button class="secondary" onclick="transformText('upper')">HURUF BESAR</button>
+      <button class="secondary" onclick="transformText('lower')">huruf kecil</button>
+      <button class="secondary" onclick="transformText('title')">Huruf Judul</button>
+      <button class="secondary" onclick="transformText('clean')">Rapikan Spasi</button>
+    </div>
+    <p class="small" id="count">0 kata · 0 karakter</p>
+    <div class="result" id="textResult"></div>
+  </section>
+
+  <section class="panel" id="chat">
+    <h2>Chat PintarAI</h2>
+    <p class="desc">Demo percakapan sederhana. Belum terhubung ke model AI.</p>
+    <label>Tulis pesan</label>
+    <textarea id="chatInput" placeholder="Contoh: kasih ide konten jualan..."></textarea>
+    <button class="primary" onclick="chatDemo()">Kirim Pesan ➜</button>
+    <div class="result" id="chatResult"></div>
+    <p class="small">Versi demo ini memberikan saran berdasarkan kata kunci, bukan jawaban AI langsung.</p>
+  </section>
+
+  <div class="ad-slot">
+    RUANG IKLAN<br>
+    <span>Slot ini belum menampilkan iklan. Bisa dipersiapkan untuk monetisasi setelah memenuhi persyaratan platform iklan.</span>
+  </div>
+  <p class="small" style="text-align:center">PintarAI membantu proses kreatif. Periksa kembali hasil sebelum dipublikasikan.</p>
+</main>
+
+<footer>© 2026 PintarAI · Dibuat untuk mendukung kreativitas ✦</footer>
+
+<script>
+document.querySelectorAll(".tab").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    button.classList.add("active");
+    document.getElementById(button.dataset.tab).classList.add("active");
+  });
+});
+
+function showResult(id, content) {
+  const box = document.getElementById(id);
+  box.replaceChildren();
+  const pre = document.createElement("pre");
+  pre.textContent = content;
+  box.appendChild(pre);
+  const actions = document.createElement("div");
+  actions.className = "actions";
+  const copy = document.createElement("button");
+  copy.className = "secondary";
+  copy.textContent = "📋 Salin hasil";
+  copy.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(content);
+      copy.textContent = "✓ Tersalin!";
+    } catch {
+      const area = document.createElement("textarea");
+      area.value = content;
+      box.appendChild(area);
+      area.select();
+      copy.textContent = "Pilih teks lalu salin";
+    }
+  };
+  actions.appendChild(copy);
+  box.appendChild(actions);
+  box.style.display = "block";
+}
+
+function value(id) {
+  return document.getElementById(id).value.trim();
+}
+
+function makeCaption() {
+  const p = value("product");
+  if (!p) return alert("Isi nama produk atau topik dulu, ya!");
+  const style = value("style");
+  const platform = value("platform");
+  const options = {
+    "Aesthetic": `Ada hal sederhana yang bikin hari terasa lebih istimewa ✨\nKenalan dengan ${p}, teman kecil untuk momen terbaikmu.\nSuka yang simpel tapi berkesan? Ini bisa jadi pilihanmu 🤍\n\n#${p.replace(/\s+/g,"")} #Aesthetic #Rekomendasi`,
+    "Lucu": `POV: niatnya cuma lihat-lihat, eh malah kepikiran ${p} 😂✨\nSiapa yang relate? Tag temanmu!\n\n#FYP #${p.replace(/\s+/g,"")} #RacunBelanja`,
+    "Elegan": `${p} — pilihan untuk kamu yang menghargai detail dan kesederhanaan.\nTemukan gaya yang terasa lebih personal.\n\n#Elegan #PilihanTerbaik #${p.replace(/\s+/g,"")}`,
+    "Persuasif": `Lagi cari ${p}? ✨\nYuk, kenali detail dan manfaatnya sebelum memilih!\nSimpan postingan ini dan bagikan ke teman yang membutuhkan.\n\n#Rekomendasi #${p.replace(/\s+/g,"")} #BelanjaCerdas`
+  };
+  showResult("captionResult", `Platform: ${platform}\n\n${options[style]}`);
+}
+
+function makePrompt() {
+  const s = value("subject");
+  if (!s) return alert("Isi subjek utama dulu, sayang!");
+  const type = value("media");
+  const v = value("visual");
+  const d = value("detail");
+  const result = type === "Gambar"
+    ? `Create a ${v} image of ${s}. ${d ? d + ". " : ""}Beautiful composition, balanced lighting, rich details, professional quality, clean background, high resolution.`
+    : `Create a ${v} video featuring ${s}. ${d ? d + ". " : ""}Smooth camera movement, natural motion, cinematic lighting, coherent scene, polished commercial quality.`;
+  showResult("promptResult", result);
+}
+
+function makeSEO() {
+  const t = value("topic");
+  if (!t) return alert("Isi topik konten dulu!");
+  const a = value("audience") || "pembaca umum";
+  const title = `${t}: Panduan Praktis untuk ${a}`;
+  const desc = `Pelajari ${t} melalui panduan praktis untuk ${a}. Temukan ide, tips, dan informasi yang bisa membantu kamu memulai.`;
+  const keywords = [t, `${t} terbaru`, `tips ${t}`, `panduan ${t}`, `${t} untuk pemula`];
+  showResult("seoResult", `IDE JUDUL:\n${title}\n\nDESKRIPSI:\n${desc}\n\nIDE KATA KUNCI:\n${keywords.join(", ")}\n\nCatatan: sesuaikan dengan isi artikel dan riset kata kunci sebelum diterbitkan.`);
+}
+
+function transformText(mode) {
+  const el = document.getElementById("rawText");
+  let t = el.value;
+  if (mode === "upper") t = t.toUpperCase();
+  if (mode === "lower") t = t.toLowerCase();
+  if (mode === "title") t = t.toLowerCase().replace(/(^|\s)\S/g, c => c.toUpperCase());
+  if (mode === "clean") t = t.replace(/\s+/g, " ").trim();
+  el.value = t;
+  updateCount();
+  showResult("textResult", t || "Belum ada teks.");
+}
+function updateCount() {
+  const t = value("rawText");
+  const words = t ? t.split(/\s+/).length : 0;
+  document.getElementById("count").textContent = `${words} kata · ${document.getElementById("rawText").value.length} karakter`;
+}
+document.getElementById("rawText").addEventListener("input", updateCount);
+
+function chatDemo() {
+  const q = value("chatInput").toLowerCase();
+  if (!q) return alert("Tulis pesan dulu!");
+  let answer;
+  if (q.includes("caption")) answer = "Coba buka fitur Generator Caption. Masukkan nama produk dan pilih gaya bahasa untuk membuat ide caption.";
+  else if (q.includes("prompt")) answer = "Buka fitur Prompt AI, masukkan subjek, lalu pilih gaya visual untuk menyusun prompt gambar atau video.";
+  else if (q.includes("seo")) answer = "Gunakan Generator SEO untuk mendapatkan ide judul, deskripsi, dan kata kunci berdasarkan topik.";
+  else if (q.includes("jualan") || q.includes("konten")) answer = "Ide konten: tampilkan masalah yang dialami pembeli, demo produk, detail keunggulan, lalu ajak penonton berkomentar. Sesuaikan dengan produk yang sebenarnya.";
+  else answer = "Terima kasih sudah mencoba PintarAI! Aku masih dalam mode demo. Coba fitur Caption, Prompt AI, SEO, atau Pengolah Teks di atas.";
+  showResult("chatResult", "Kamu: " + value("chatInput") + "\n\nPintarAI Demo: " + answer);
+}
+</script>
+</body>
+                 </html>
+                                   
