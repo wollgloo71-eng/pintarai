@@ -1,342 +1,499 @@
-<!doctype html>
-<html lang="id">
-<head>
-  <meta name="google-site-verification" content="hDNuvg1kbReXL0qLF4QwXi8oJDoDABdxebPxylGr8P0" />
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PintarAI menyediakan alat gratis untuk membuat CV, surat lamaran kerja, dan ide usaha dengan mudah.">
-<meta name="theme-color" content="#111827">
-<title>PintarAI — Alat Gratis untuk Kerja & Usaha</title>
-<style>
-:root{--bg:#f6f7fb;--ink:#172033;--muted:#65708a;--brand:#6d5dfc;--brand2:#18b6a4;--card:#fff;--line:#e5e8f1}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-header{background:linear-gradient(130deg,#111827,#29205f 65%,#4c35a8);color:white;padding:24px 18px 48px}
-nav,.wrap{max-width:1000px;margin:auto}nav{display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{font-size:1.3rem;font-weight:850;letter-spacing:-.5px}.logo span{color:#8ef0dc}nav a{color:#e8eaff;text-decoration:none;font-size:.92rem}
-.hero{max-width:1000px;margin:38px auto 0}.eyebrow{color:#a7f3e8;font-weight:700;font-size:.83rem;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(2rem,7vw,3.6rem);line-height:1.08;letter-spacing:-1.5px;max-width:720px;margin:12px 0}.hero p{color:#d9def5;max-width:650px;font-size:1.05rem}.pill{display:inline-block;background:#ffffff1c;border:1px solid #ffffff30;padding:7px 12px;border-radius:99px;font-size:.85rem;margin-top:8px}
-main{max-width:1000px;margin:-20px auto 0;padding:0 16px 48px;position:relative}.section-title{margin:34px 0 14px}.section-title h2{margin:0;font-size:1.55rem}.section-title p{margin:5px 0;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 28px #17203308}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#eeedff;font-size:1.5rem}.card h3{margin:13px 0 5px}.card p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
-button,.button{border:0;background:var(--brand);color:white;padding:12px 15px;border-radius:11px;font-weight:750;cursor:pointer;font-size:.95rem;text-decoration:none;display:inline-block}button.secondary{background:#eef0f7;color:#303951}button:hover,.button:hover{filter:brightness(.96)}.tool{margin-top:18px}.tool[hidden]{display:none}.tool-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.tool-head h3{margin:0}label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 6px}input,textarea,select{width:100%;border:1px solid #d9deeb;border-radius:10px;padding:12px;font:inherit;background:white;color:var(--ink)}textarea{min-height:100px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 14px}.output{white-space:pre-wrap;background:#f7f8fc;border:1px dashed #cbd1e1;border-radius:12px;padding:15px;margin-top:16px;min-height:70px;overflow-wrap:anywhere}.hint{color:var(--muted);font-size:.85rem}.notice{background:#fff8e7;border:1px solid #f3dfad;border-radius:12px;padding:13px;color:#6b5315;font-size:.9rem}
-footer{border-top:1px solid var(--line);padding:25px 16px;color:var(--muted);font-size:.9rem;text-align:center}footer a{color:inherit}.ad-note{font-size:.8rem;color:var(--muted);margin-top:14px}
-@media(max-width:520px){header{padding-top:18px}.hero{margin-top:30px}nav a{font-size:.82rem}.card{padding:17px}}
-</style>
-</head>
-  <meta name="google-site-verification" content="hDNuvg1kbReXL0qLF4QwXi8oJDoDABdxebPxylGr8P0" />
-<body>
-<header>
-<nav><div class="logo">Pintar<span>AI</span></div><a href="#alat">Alat gratis ↓</a></nav>
-<section class="hero"><div class="eyebrow">Alat gratis untuk langkah berikutnya</div><h1>Kerja lebih siap.<br>Usaha lebih berani.</h1><p>Gunakan alat sederhana untuk menyusun CV, menulis surat lamaran, dan menemukan ide usaha. Gratis, langsung dari browser HP kamu.</p><span class="pill">✓ Tanpa login · ✓ Ramah HP · ✓ Gratis</span></section>
-</header>
-<main>
-<section class="section-title" id="alat"><h2>Mulai dari sini</h2><p>Pilih alat yang kamu butuhkan. Isi beberapa detail, lalu buat hasilnya.</p></section>
-<div class="grid">
-<article class="card"><div class="icon">📄</div><h3>Pembuat CV sederhana</h3><p>Susun draf CV yang rapi untuk melamar pekerjaan.</p><button onclick="openTool('cv')">Buat CV</button></article>
-<article class="card"><div class="icon">✉️</div><h3>Surat lamaran kerja</h3><p>Buat surat lamaran yang sopan dan mudah diedit.</p><button onclick="openTool('surat')">Buat surat</button></article>
-<article class="card"><div class="icon">💡</div><h3>Ide usaha sesuai modal</h3><p>Dapatkan inspirasi usaha berdasarkan modal dan minatmu.</p><button onclick="openTool('usaha')">Cari ide usaha</button></article>
-</div>
-<section class="card tool" id="tool-cv" hidden>
-<div class="tool-head"><h3>📄 Pembuat CV</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
-<p class="hint">Isi data secukupnya. Hindari memasukkan nomor identitas atau informasi rahasia.</p>
-<div class="form-grid"><div><label for="cvNama">Nama</label><input id="cvNama" placeholder="Nama lengkap"></div><div><label for="cvKontak">Email/telepon (opsional)</label><input id="cvKontak" placeholder="Kontak yang ingin dicantumkan"></div><div><label for="cvTarget">Posisi yang dilamar</label><input id="cvTarget" placeholder="Contoh: Staf toko"></div><div><label for="cvPendidikan">Pendidikan terakhir</label><input id="cvPendidikan" placeholder="Contoh: SMA"></div></div>
-<label for="cvSkill">Keahlian</label><textarea id="cvSkill" placeholder="Contoh: komunikasi, Excel, pelayanan pelanggan"></textarea><label for="cvPengalaman">Pengalaman atau kegiatan (boleh kosong)</label><textarea id="cvPengalaman" placeholder="Pengalaman kerja, magang, organisasi, atau proyek"></textarea>
-<button onclick="makeCV()">Buat draf CV</button><div class="output" id="cvOut" aria-live="polite">Hasil akan muncul di sini.</div><button class="secondary" onclick="copyOut('cvOut')">Salin hasil</button>
-</section>
-<section class="card tool" id="tool-surat" hidden>
-<div class="tool-head"><h3>✉️ Surat lamaran kerja</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
-<div class="form-grid"><div><label for="sNama">Nama kamu</label><input id="sNama" placeholder="Nama lengkap"></div><div><label for="sPerusahaan">Nama perusahaan</label><input id="sPerusahaan" placeholder="Nama perusahaan"></div><div><label for="sPosisi">Posisi yang dilamar</label><input id="sPosisi" placeholder="Contoh: Admin"></div><div><label for="sLatar">Pengalaman/keunggulan</label><input id="sLatar" placeholder="Contoh: teliti dan cepat belajar"></div></div>
-<button onclick="makeSurat()">Buat surat</button><div class="output" id="sOut" aria-live="polite">Hasil akan muncul di sini.</div><button class="secondary" onclick="copyOut('sOut')">Salin hasil</button>
-</section>
-<section class="card tool" id="tool-usaha" hidden>
-<div class="tool-head"><h3>💡 Pencari ide usaha</h3><button class="secondary" onclick="closeTools()">Tutup</button></div>
-<div class="form-grid"><div><label for="uModal">Modal awal</label><select id="uModal"><option value="0">Rp0–Rp100 ribu</option><option value="100">Rp100 ribu–Rp500 ribu</option><option value="500">Rp500 ribu ke atas</option></select></div><div><label for="uMinat">Minat/kemampuan</label><select id="uMinat"><option>Digital dan internet</option><option>Makanan dan minuman</option><option>Kerajinan dan desain</option><option>Jasa dan komunikasi</option><option>Belum tahu</option></select></div></div>
-<button onclick="makeUsaha()">Cari ide</button><div class="output" id="uOut" aria-live="polite">Ide akan muncul di sini.</div><button class="secondary" onclick="copyOut('uOut')">Salin hasil</button><p class="hint">Ide adalah inspirasi, bukan jaminan keuntungan. Periksa kebutuhan pasar dan biaya sebelum mulai.</p>
-</section>
-<section class="section-title"><h2>Tips singkat</h2><p>Gunakan hasil sebagai draf. Periksa kembali nama, fakta, dan detail sebelum mengirim lamaran atau menjalankan usaha.</p></section>
-<div class="notice">PintarAI adalah alat bantu umum, bukan layanan rekrutmen atau penasihat keuangan. Jangan masukkan data pribadi sensitif.</div>
-<p class="ad-note">Transparansi: situs ini dapat menampilkan iklan jika kelak diterima dalam program iklan yang sesuai. Saat ini tidak ada iklan yang ditampilkan.</p>
-</main>
-<footer>© <span id="year"></span> PintarAI · <a href="privasi.html">Kebijakan Privasi</a> · <a href="tentang.html">Tentang</a> · <a href="kontak.html">Kontak</a></footer>
-<script>
-const $=id=>document.getElementById(id);
-function openTool(name){closeTools();$('tool-'+name).hidden=false;$('tool-'+name).scrollIntoView({behavior:'smooth',block:'start'})}
-function closeTools(){document.querySelectorAll('.tool').forEach(el=>el.hidden=true)}
-function val(id){return $(id).value.trim()}
-function makeCV(){
-const n=val('cvNama')||'[Nama lengkap]', c=val('cvKontak'), t=val('cvTarget')||'[Posisi yang dilamar]', p=val('cvPendidikan')||'[Pendidikan terakhir]', sk=val('cvSkill')||'[Tambahkan keahlian yang relevan]', ex=val('cvPengalaman')||'[Tambahkan pengalaman, proyek, atau kegiatan yang benar-benar pernah dilakukan]';
-$('cvOut').textContent=`${n}\n${c}\n\nPROFIL\nKandidat untuk posisi ${t}. Memiliki latar belakang pendidikan ${p} dan ingin berkontribusi serta terus mengembangkan kemampuan.\n\nPENDIDIKAN\n${p}\n\nKEAHLIAN\n${sk}\n\nPENGALAMAN / KEGIATAN\n${ex}\n\nCatatan: Sesuaikan draf ini dengan pengalaman nyata dan periksa kembali sebelum dikirim.`
-}
-function makeSurat(){
-const n=val('sNama')||'[Nama lengkap]', co=val('sPerusahaan')||'[Nama perusahaan]', pos=val('sPosisi')||'[Posisi]', lat=val('sLatar')||'kemauan belajar dan bekerja sama';
-$('sOut').textContent=`Kepada Yth. Tim Rekrutmen ${co}\n\nPerihal: Lamaran Pekerjaan – ${pos}\n\nDengan hormat,\n\nSaya ${n} bermaksud mengajukan lamaran untuk posisi ${pos} di ${co}. Saya memiliki keunggulan dalam ${lat} dan siap mempelajari tanggung jawab pekerjaan dengan sungguh-sungguh.\n\nSaya berharap mendapat kesempatan untuk mengikuti proses seleksi dan menjelaskan kualifikasi saya lebih lanjut. Terima kasih atas waktu dan pertimbangannya.\n\nHormat saya,\n${n}\n\nCatatan: Tambahkan kualifikasi yang benar-benar sesuai dengan diri kamu sebelum mengirim.`
-}
-function makeUsaha(){
-const m=val('uModal'), i=val('uMinat');let ideas=[];
-if(i==='Digital dan internet') ideas=m==='0'?['Jasa mengetik atau merapikan dokumen dengan perangkat yang sudah ada','Membuat konten informatif untuk usaha lokal','Menjual template digital sederhana setelah memvalidasi kebutuhan']:['Jasa desain sederhana untuk UMKM','Jasa pengelolaan media sosial skala kecil','Membuat produk digital berdasarkan kebutuhan calon pembeli'];
-else if(i==='Makanan dan minuman') ideas=m==='0'?['Membuat konten resep hemat tanpa harus menjual makanan','Riset pre-order kecil sebelum membeli bahan','Membantu promosi usaha makanan lokal']:['Uji coba pre-order dengan perhitungan biaya','Paket camilan berdasarkan pesanan','Konten resep dan rekomendasi alat dapur'];
-else if(i==='Kerajinan dan desain') ideas=m==='0'?['Membuat contoh desain portofolio gratis','Menawarkan jasa desain berdasarkan pesanan','Menguji minat terhadap produk digital']:['Jasa desain sesuai pesanan','Produk kerajinan sistem pre-order','Template undangan digital'];
-else if(i==='Jasa dan komunikasi') ideas=m==='0'?['Membantu mengetik dokumen','Membantu usaha lokal menulis deskripsi produk','Jasa admin sederhana sesuai kemampuan']:['Jasa admin media sosial','Jasa penulisan deskripsi produk','Jasa bantuan dokumen dan presentasi'];
-else ideas=m==='0'?['Jasa berbasis keterampilan yang sudah kamu punya','Konten tutorial tentang hal yang kamu kuasai','Membantu promosi usaha lokal']:['Jasa untuk usaha lokal','Produk digital sederhana','Penjualan berbasis pre-order setelah riset'];
-$('uOut').textContent=`Ide sesuai minat: ${i}\n\n${ideas.map((x,j)=>(j+1)+'. '+x).join('\n')}\n\nLangkah pertama: pilih satu ide, tanyakan kebutuhan kepada calon pengguna, hitung biaya dan waktu, lalu uji dalam skala kecil. Jangan menganggap ide ini sebagai jaminan penghasilan.`
-}
-async function copyOut(id){const text=$(id).textContent;try{await navigator.clipboard.writeText(text);alert('Hasil disalin.')}catch(e){alert('Salin teks hasil secara manual.');}}
-$('year').textContent=new Date().getFullYear();
-</script>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100b25">
-<meta name="description" content="PintarAI menyediakan alat gratis untuk membuat caption, prompt AI, konten SEO, dan mengolah teks secara praktis.">
-<title>PintarAI — Kreativitas Tanpa Batas</title>
-<style>
-:root {
-  --bg:#0b0818; --panel:#151027; --line:#30264b;
-  --purple:#a78bfa; --blue:#67e8f9; --text:#f5f3ff;
-  --muted:#aaa4c1; --green:#86efac;}
-*{box-sizing:border-box}
-body{
-  margin:0;background:radial-gradient(ellipse at top,#251447 0,#0b0818 48%);
-  color:var(--text);font-family:system-ui,-apple-system,sans-serif;
-  min-height:100vh;line-height:1.6}
-header{padding:24px 18px 12px;text-align:center}
-.logo{font-size:32px;font-weight:900;letter-spacing:-1px}
-.logo span{color:var(--blue)}
-.tagline{color:var(--muted);font-size:14px}
-.hero{max-width:760px;margin:24px auto;padding:0 18px;text-align:center}
-.hero h1{font-size:clamp(30px,7vw,49px);line-height:1.15;margin:12px 0}
-.hero h1 span{color:var(--purple)}
-.hero p{color:var(--muted)}
-.pill{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:5px 12px;color:var(--blue);font-size:12px}
-main{max-width:850px;margin:auto;padding:10px 16px 50px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
-.tab{background:var(--panel);color:var(--muted);border:1px solid var(--line);padding:12px 5px;border-radius:12px;font-weight:700;cursor:pointer}
-.tab.active{background:#35205b;color:white;border-color:var(--purple)}
-.panel{display:none;background:rgba(21,16,39,.95);border:1px solid var(--line);padding:20px;border-radius:20px}
-.panel.active{display:block}
-h2{font-size:21px;margin:0 0 5px}
-.desc{font-size:13px;color:var(--muted);margin:0 0 20px}
-label{display:block;font-size:13px;color:#d9d4eb;margin:14px 0 6px}
-input,select,textarea{width:100%;background:#0c0919;color:white;border:1px solid #3b3155;border-radius:10px;padding:12px;font:inherit;font-size:14px;outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--purple)}
-textarea{resize:vertical;min-height:100px}
-button{font:inherit}
-.primary{width:100%;border:0;border-radius:11px;margin-top:15px;padding:13px;background:linear-gradient(100deg,#8b5cf6,#6366f1);color:white;font-weight:800;cursor:pointer}
-.secondary{border:1px solid var(--line);background:#211836;color:white;padding:9px 12px;border-radius:9px;cursor:pointer}
-.result{display:none;margin-top:18px;padding:14px;background:#0d0a1c;border:1px solid var(--line);border-radius:12px;overflow-wrap:anywhere}
-.result pre{white-space:pre-wrap;font:inherit;margin:0}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.small{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
-.ad-slot{border:1px dashed #51436e;border-radius:12px;text-align:center;color:var(--muted);padding:18px;margin:22px 0;font-size:12px}
-a{color:var(--blue)}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.panel{padding:15px}.tabs{gap:5px}.tab{font-size:12px}}
-</style>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PintarAI menyediakan alat gratis untuk membuat CV, surat lamaran, ide usaha, caption, prompt AI, dan teks SEO.">
+  <meta name="theme-color" content="#f7f8ff">
+  <title>PintarAI — Asisten Digital Gratis</title>
+  <style>
+    :root {
+      --bg: #f7f8ff;
+      --card: #ffffff;
+      --ink: #20233d;
+      --muted: #70758c;
+      --primary: #6857e8;
+      --soft: #eeebff;
+      --border: #e8e9f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    header {
+      padding: 22px 18px;
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      max-width: 1050px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .logo { font-size: 23px; font-weight: 850; letter-spacing: -.8px; }
+    .logo span { color: var(--primary); }
+    .tag {
+      font-size: 12px;
+      background: var(--soft);
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+    main { max-width: 1050px; margin: auto; padding: 25px 16px 55px; }
+    .hero {
+      padding: 42px 22px;
+      text-align: center;
+      border-radius: 25px;
+      background: linear-gradient(135deg,#eeebff,#fff 55%,#e7f7ff);
+      border: 1px solid var(--border);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 11px;
+      border-radius: 30px;
+      background: white;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 750;
+    }
+    h1 { font-size: clamp(30px,6vw,49px); line-height: 1.12; margin: 15px 0; letter-spacing: -1.5px; }
+    .hero p { max-width: 590px; margin: 0 auto; color: var(--muted); }
+    .section-title { margin: 34px 0 16px; }
+    .section-title h2 { margin: 0 0 5px; font-size: 23px; }
+    .section-title p { margin: 0; color: var(--muted); font-size: 14px; }
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(215px,1fr));
+      gap: 14px;
+    }
+    .tool {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 18px;
+      padding: 19px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--ink);
+      font: inherit;
+      transition: .18s;
+    }
+    .tool:hover { transform: translateY(-3px); border-color: #c8c0ff; box-shadow: 0 8px 25px #3830800c; }
+    .tool .emoji { font-size: 29px; }
+    .tool h3 { margin: 9px 0 4px; font-size: 17px; }
+    .tool p { margin: 0; font-size: 13px; color: var(--muted); }
+    .workspace {
+      display: none;
+      margin-top: 26px;
+      padding: 23px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      scroll-margin-top: 90px;
+    }
+    .workspace.active { display: block; }
+    .workspace h2 { margin: 0 0 4px; }
+    .hint { color: var(--muted); font-size: 13px; margin: 0 0 20px; }
+    label { display: block; font-size: 13px; font-weight: 700; margin: 14px 0 6px; }
+    input, textarea, select {
+      display: block;
+      width: 100%;
+      border: 1px solid #dfe1ec;
+      border-radius: 11px;
+      padding: 12px;
+      font: inherit;
+      font-size: 14px;
+      background: #fff;
+      color: #20233d;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px #6857e81a; }
+    textarea { min-height: 100px; resize: vertical; }
+    .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 0 14px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .btn {
+      border: 0;
+      border-radius: 11px;
+      padding: 11px 17px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 750;
+    }
+    .primary { background: var(--primary); color: white; }
+    .secondary { background: var(--soft); color: var(--primary); }
+    .result-wrap { margin-top: 22px; }
+    .result-label { font-weight: 800; margin-bottom: 8px; }
+    .result {
+      display: block;
+      width: 100%;
+      min-height: 120px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      padding: 16px;
+      border-radius: 13px;
+      border: 1px solid #dfe1ec;
+      background: #f7f8fc;
+      color: #20233d;
+      font-size: 14px;
+      line-height: 1.8;
+      font-family: inherit;
+    }
+    .result:empty::before { content: "Hasil akan muncul di sini setelah kamu menekan tombol buat."; color: #85899b; }
+    .notice { font-size: 12px; color: var(--muted); margin-top: 9px; }
+    footer { text-align: center; padding: 25px 16px; color: var(--muted); font-size: 12px; }
+    @media(max-width:520px) {
+      header { padding: 15px 13px; }
+      main { padding: 18px 12px 40px; }
+      .hero { padding: 32px 16px; }
+      .workspace { padding: 17px; }
+      .tag { font-size: 10px; }
+    }
+  </style>
 </head>
 <body>
 <header>
-  <div class="logo">Pintar<span>AI</span> ✦</div>
-  <div class="tagline">Teman kreatif untuk ide tanpa batas.</div>
+  <div class="nav">
+    <div class="logo">Pintar<span>AI.</span></div>
+    <div class="tag">✦ Asisten Digital Gratis</div>
+  </div>
 </header>
-<section class="hero">
-  <span class="pill">✦ CREATIVE TOOLS</span>
-  <h1>Ide hebat dimulai dari <span>satu klik.</span></h1>
-  <p>Buat caption, prompt, konten SEO, dan olah teks dengan praktis. Gratis untuk dicoba.</p>
-</section>
+
 <main>
-  <div class="tabs">
-    <button class="tab active" data-tab="caption">✍️ Caption</button>
-    <button class="tab" data-tab="prompt">🎨 Prompt AI</button>
-    <button class="tab" data-tab="seo">🔎 SEO</button>
-    <button class="tab" data-tab="text">📝 Teks</button>
-    <button class="tab" data-tab="chat">🤖 Chat Demo</button>
-  </div>
-  <section class="panel active" id="caption">
-    <h2>Generator Caption</h2>
-    <p class="desc">Buat caption promosi atau media sosial yang menarik.</p>
-    <label>Nama produk atau topik</label>
-    <input id="product" placeholder="Contoh: tumbler aesthetic">
-    <label>Platform</label>
-    <select id="platform">
-      <option>TikTok</option><option>Instagram</option>
-      <option>Facebook</option><option>WhatsApp</option>
-    </select>
-    <label>Gaya bahasa</label>
-    <select id="style">
-      <option>Aesthetic</option><option>Lucu</option>
-      <option>Elegan</option><option>Persuasif</option>
-    </select>
-    <button class="primary" onclick="makeCaption()">Buat Caption ✨</button>
-    <div class="result" id="captionResult"></div>
+  <section class="hero">
+    <span class="eyebrow">✨ Satu website, banyak solusi</span>
+    <h1>Bikin pekerjaan jadi<br><span style="color:#6857e8">lebih mudah.</span></h1>
+    <p>Dari CV sampai ide usaha, temukan alat praktis untuk membantu pekerjaan dan kreativitasmu.</p>
   </section>
-  <section class="panel" id="prompt">
-    <h2>Generator Prompt AI</h2>
-    <p class="desc">Susun ide prompt untuk gambar atau video AI.</p>
-    <label>Subjek utama</label>
-    <input id="subject" placeholder="Contoh: tumbler putih di meja kayu">
-    <label>Jenis konten</label>
-    <select id="media"><option>Gambar</option><option>Video</option></select>
-    <label>Gaya visual</label>
-    <select id="visual">
-      <option>Aesthetic cinematic</option><option>Realistis dan natural</option>
-      <option>Minimalis premium</option><option>3D futuristik</option>
-      <option>Anime</option>
-    </select>
-    <label>Detail tambahan</label>
-    <input id="detail" placeholder="Contoh: cahaya matahari sore">
-    <button class="primary" onclick="makePrompt()">Buat Prompt ✨</button>
-    <div class="result" id="promptResult"></div>
+
+  <section class="section-title">
+    <h2>Mulai dari sini 👇</h2>
+    <p>Pilih alat yang kamu butuhkan, lalu isi informasi di bawahnya.</p>
   </section>
-  <section class="panel" id="seo">
-    <h2>Generator SEO</h2>
-    <p class="desc">Buat ide judul, deskripsi, dan kata kunci untuk konten.</p>
-    <label>Topik konten</label>
-    <input id="topic" placeholder="Contoh: tips memilih tumbler">
-    <label>Target pembaca</label>
-    <input id="audience" placeholder="Contoh: anak muda">
-    <button class="primary" onclick="makeSEO()">Buat Konten SEO ✨</button>
-    <div class="result" id="seoResult"></div>
+
+  <section class="tools" aria-label="Daftar alat">
+    <button class="tool" onclick="openTool('cv')"><div class="emoji">📄</div><h3>Pembuat CV</h3><p>Susun CV sederhana untuk melamar pekerjaan.</p></button>
+    <button class="tool" onclick="openTool('surat')"><div class="emoji">💌</div><h3>Surat Lamaran</h3><p>Buat draf surat lamaran kerja yang rapi.</p></button>
+    <button class="tool" onclick="openTool('usaha')"><div class="emoji">💡</div><h3>Ide Usaha</h3><p>Temukan inspirasi usaha sesuai minat dan modal.</p></button>
+    <button class="tool" onclick="openTool('caption')"><div class="emoji">✨</div><h3>Generator Caption</h3><p>Buat caption menarik untuk media sosial.</p></button>
+    <button class="tool" onclick="openTool('prompt')"><div class="emoji">🎨</div><h3>Prompt AI</h3><p>Susun prompt untuk gambar atau konten AI.</p></button>
+    <button class="tool" onclick="openTool('seo')"><div class="emoji">🔎</div><h3>Teks SEO</h3><p>Buat judul, deskripsi, dan kata kunci awal.</p></button>
+    <button class="tool" onclick="openTool('teks')"><div class="emoji">📝</div><h3>Pengolah Teks</h3><p>Rapikan teks atau ubah huruf besar dan kecil.</p></button>
+    <button class="tool" onclick="openTool('chat')"><div class="emoji">🤖</div><h3>Chatbot Demo</h3><p>Coba chatbot sederhana langsung di website.</p></button>
   </section>
-  <section class="panel" id="text">
-    <h2>Pengolah Teks</h2>
-    <p class="desc">Ubah huruf, rapikan spasi, dan hitung kata dengan cepat.</p>
-    <label>Masukkan teks</label>
-    <textarea id="rawText" placeholder="Tulis atau tempel teks di sini..."></textarea>
-    <div class="grid">
-      <button class="secondary" onclick="transformText('upper')">HURUF BESAR</button>
-      <button class="secondary" onclick="transformText('lower')">huruf kecil</button>
-      <button class="secondary" onclick="transformText('title')">Huruf Judul</button>
-      <button class="secondary" onclick="transformText('clean')">Rapikan Spasi</button>
+
+  <section class="workspace" id="workspace">
+    <h2 id="toolTitle">Pilih alat</h2>
+    <p class="hint" id="toolHint"></p>
+    <div id="formFields"></div>
+    <div class="actions">
+      <button class="btn primary" id="generateBtn" onclick="generate()">Buat sekarang ✨</button>
+      <button class="btn secondary" onclick="clearFields()">Bersihkan</button>
     </div>
-    <p class="small" id="count">0 kata · 0 karakter</p>
-    <div class="result" id="textResult"></div>
+    <div class="result-wrap">
+      <div class="result-label">Hasil kamu</div>
+      <div id="result" class="result" role="status" aria-live="polite"></div>
+      <div class="actions">
+        <button class="btn secondary" onclick="copyResult()">📋 Salin hasil</button>
+      </div>
+      <p class="notice" id="resultNotice">Hasil dibuat secara lokal di browser.</p>
+    </div>
   </section>
-  <section class="panel" id="chat">
-    <h2>Chat PintarAI</h2>
-    <p class="desc">Demo percakapan sederhana. Belum terhubung ke model AI.</p>
-    <label>Tulis pesan</label>
-    <textarea id="chatInput" placeholder="Contoh: kasih ide konten jualan..."></textarea>
-    <button class="primary" onclick="chatDemo()">Kirim Pesan ➜</button>
-    <div class="result" id="chatResult"></div>
-    <p class="small">Versi demo ini memberikan saran berdasarkan kata kunci, bukan jawaban AI langsung.</p>
-  </section>
-  <div class="ad-slot">
-    RUANG IKLAN<br>
-    <span>Slot ini belum menampilkan iklan. Bisa dipersiapkan untuk monetisasi setelah memenuhi persyaratan platform iklan.</span>
-  </div>
-  <p class="small" style="text-align:center">PintarAI membantu proses kreatif. Periksa kembali hasil sebelum dipublikasikan.</p>
 </main>
-<footer>© 2026 PintarAI · Dibuat untuk mendukung kreativitas ✦</footer>
+
+<footer>
+  <div><strong>PintarAI.</strong> — Alat digital praktis untuk semua.</div>
+  <div style="margin-top:5px">Hasil merupakan draf yang bisa kamu edit sesuai kebutuhan.</div>
+</footer>
+
 <script>
-document.querySelectorAll(".tab").forEach(button => {
-  button.addEventListener("click", () => {
-  document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
-  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
-  button.classList.add("active");
-  document.getElementById(button.dataset.tab).classList.add("active");
-  });
-});
+const tools = {
+  cv: {
+    title: "📄 Pembuat CV sederhana",
+    hint: "Isi data diri dan pengalamanmu. Periksa kembali sebelum digunakan.",
+    fields: [
+      ["nama","Nama lengkap","text","Masukkan nama lengkap"],
+      ["kontak","Nomor HP atau email","text","Kontak yang bisa dihubungi"],
+      ["posisi","Posisi yang dilamar","text","Contoh: Admin, kasir, staf gudang"],
+      ["pendidikan","Pendidikan terakhir","text","Contoh: SMA/SMK"],
+      ["skill","Keahlian","textarea","Contoh: komunikasi, Excel, pelayanan pelanggan"],
+      ["pengalaman","Pengalaman kerja atau organisasi","textarea","Tuliskan pengalaman atau proyek yang relevan"]
+    ]
+  },
+  surat: {
+    title: "💌 Pembuat surat lamaran",
+    hint: "Buat draf surat formal yang bisa kamu sesuaikan.",
+    fields: [
+      ["nama","Nama lengkap","text","Nama kamu"],
+      ["perusahaan","Nama perusahaan","text","Nama perusahaan tujuan"],
+      ["posisi","Posisi yang dilamar","text","Nama posisi"],
+      ["skill","Keahlian atau pengalaman","textarea","Ceritakan kelebihan yang relevan"]
+    ]
+  },
+  usaha: {
+    title: "💡 Pencari ide usaha",
+    hint: "Dapatkan inspirasi berdasarkan minat dan modal awal.",
+    fields: [
+      ["minat","Minat kamu","select","",["Digital dan internet","Kuliner","Fashion","Jasa","Kerajinan","Pertanian"]],
+      ["modal","Modal awal","select","",["Belum ada modal","Di bawah Rp100.000","Rp100.000–Rp500.000","Rp500.000–Rp2.000.000","Di atas Rp2.000.000"]],
+      ["waktu","Waktu tersedia","select","",["Sampingan","Paruh waktu","Penuh waktu"]]
+    ]
+  },
+  caption: {
+    title: "✨ Generator caption",
+    hint: "Buat caption untuk promosi, postingan, atau video.",
+    fields: [
+      ["produk","Nama produk atau topik","text","Contoh: tumbler aesthetic"],
+      ["gaya","Gaya caption","select","",["Aesthetic","Lucu dan santai","Persuasif","Minimalis","Inspiratif"]],
+      ["platform","Platform","select","",["TikTok","Instagram","Facebook","WhatsApp"]]
+    ]
+  },
+  prompt: {
+    title: "🎨 Generator prompt AI",
+    hint: "Susun deskripsi yang lebih jelas untuk membuat gambar atau konten AI.",
+    fields: [
+      ["subjek","Subjek utama","text","Contoh: tumbler minimalis"],
+      ["gaya","Gaya visual","text","Contoh: aesthetic, premium, realistis"],
+      ["latar","Latar atau suasana","text","Contoh: meja kayu dengan cahaya sore"],
+      ["rasio","Rasio gambar","select","",["9:16 vertikal","1:1 persegi","16:9 horizontal"]]
+    ]
+  },
+  seo: {
+    title: "🔎 Generator teks SEO",
+    hint: "Buat draf judul, deskripsi, dan kata kunci untuk halaman atau produk.",
+    fields: [
+      ["topik","Topik atau nama produk","text","Contoh: tumbler stainless"],
+      ["target","Target pembaca","text","Contoh: pekerja dan mahasiswa"],
+      ["manfaat","Manfaat utama","textarea","Apa yang membuat produk atau halaman ini berguna?"]
+    ]
+  },
+  teks: {
+    title: "📝 Pengolah teks",
+    hint: "Tempel teks, lalu pilih cara mengolahnya.",
+    fields: [
+      ["isi","Teks yang ingin diolah","textarea","Tempel teks di sini"],
+      ["aksi","Pilih tindakan","select","",["Rapikan spasi","HURUF BESAR","huruf kecil","Awal Kalimat Kapital","Hitung kata dan karakter"]]
+    ]
+  },
+  chat: {
+    title: "🤖 Chatbot demo",
+    hint: "Chatbot ini menggunakan jawaban contoh, belum terhubung ke model AI online.",
+    fields: [
+      ["pesan","Tulis pesan","textarea","Contoh: bagaimana cara memulai usaha online?"]
+    ]
+  }
+};
 
-function showResult(id, content) {
-  const box = document.getElementById(id);
-  box.replaceChildren();
-  const pre = document.createElement("pre");
-  pre.textContent = content;
-  box.appendChild(pre);
-  const actions = document.createElement("div");
-  actions.className = "actions";
-  const copy = document.createElement("button");
-  copy.className = "secondary";
-  copy.textContent = "📋 Salin hasil";
-  copy.onclick = async () => {
-    try {
-      await navigator.clipboard.writeText(content);
-      copy.textContent = "✓ Tersalin!";
-    } catch {
-      const area = document.createElement("textarea");
-      area.value = content;
-      box.appendChild(area);
-      area.select();
-      copy.textContent = "Pilih teks lalu salin";
+let currentTool = "cv";
+
+function openTool(id) {
+  currentTool = id;
+  const tool = tools[id];
+  document.getElementById("toolTitle").textContent = tool.title;
+  document.getElementById("toolHint").textContent = tool.hint;
+  document.getElementById("result").textContent = "";
+  document.getElementById("resultNotice").textContent = "Hasil dibuat secara lokal di browser.";
+  const container = document.getElementById("formFields");
+  container.replaceChildren();
+
+  tool.fields.forEach(field => {
+    const [name,label,type,placeholder,options] = field;
+    const wrap = document.createElement("div");
+    const lab = document.createElement("label");
+    lab.htmlFor = "field_" + name;
+    lab.textContent = label;
+    wrap.appendChild(lab);
+    let input;
+
+    if (type === "select") {
+      input = document.createElement("select");
+      (options || []).forEach(value => {
+        const opt = document.createElement("option");
+        opt.value = value;
+        opt.textContent = value;
+        input.appendChild(opt);
+      });
+    } else {
+      input = document.createElement(type === "textarea" ? "textarea" : "input");
+      if (type !== "textarea") input.type = type;
+      input.placeholder = placeholder || "";
     }
-  };
-  actions.appendChild(copy);
-  box.appendChild(actions);
-  box.style.display = "block";
+
+    input.id = "field_" + name;
+    input.name = name;
+    input.autocomplete = "off";
+    wrap.appendChild(input);
+    container.appendChild(wrap);
+  });
+
+  document.getElementById("workspace").classList.add("active");
+  document.getElementById("workspace").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function value(id) {
-  return document.getElementById(id).value.trim();
+function val(name) {
+  const el = document.getElementById("field_" + name);
+  return el ? el.value.trim() : "";
+}
+function required(...names) {
+  for (const name of names) {
+    if (!val(name)) {
+      const el = document.getElementById("field_" + name);
+      if (el) {
+        el.focus();
+        alert("Isi dulu: " + name);
+      }
+      return false;
+    }
+  }
+  return true;
+}
+function showResult(text, note) {
+  const result = document.getElementById("result");
+  result.textContent = text;
+  document.getElementById("resultNotice").textContent = note || "Periksa dan sesuaikan hasil sebelum digunakan.";
 }
 
-function makeCaption() {
-  const p = value("product");
-  if (!p) return alert("Isi nama produk atau topik dulu, ya!");
-  const style = value("style");
-  const platform = value("platform");
-  const options = {
-    "Aesthetic": `Ada hal sederhana yang bikin hari terasa lebih istimewa ✨\nKenalan dengan ${p}, teman kecil untuk momen terbaikmu.\nSuka yang simpel tapi berkesan? Ini bisa jadi pilihanmu 🤍\n\n#${p.replace(/\s+/g,"")} #Aesthetic #Rekomendasi`,
-    "Lucu": `POV: niatnya cuma lihat-lihat, eh malah kepikiran ${p} 😂✨\nSiapa yang relate? Tag temanmu!\n\n#FYP #${p.replace(/\s+/g,"")} #RacunBelanja`,
-    "Elegan": `${p} — pilihan untuk kamu yang menghargai detail dan kesederhanaan.\nTemukan gaya yang terasa lebih personal.\n\n#Elegan #PilihanTerbaik #${p.replace(/\s+/g,"")}`,
-    "Persuasif": `Lagi cari ${p}? ✨\nYuk, kenali detail dan manfaatnya sebelum memilih!\nSimpan postingan ini dan bagikan ke teman yang membutuhkan.\n\n#Rekomendasi #${p.replace(/\s+/g,"")} #BelanjaCerdas`
-  };
-  showResult("captionResult", `Platform: ${platform}\n\n${options[style]}`);
-}
+function generate() {
+  let output = "";
+  switch (currentTool) {
+    case "cv":
+      if (!required("nama","posisi")) return;
+      output =
+`CURRICULUM VITAE
 
-function makePrompt() {
-  const s = value("subject");
-  if (!s) return alert("Isi subjek utama dulu, sayang!");
-  const type = value("media");
-  const v = value("visual");
-  const d = value("detail");
-  const result = type === "Gambar"
-    ? `Create a ${v} image of ${s}. ${d ? d + ". " : ""}Beautiful composition, balanced lighting, rich details, professional quality, clean background, high resolution.`
-    : `Create a ${v} video featuring ${s}. ${d ? d + ". " : ""}Smooth camera movement, natural motion, cinematic lighting, coherent scene, polished commercial quality.`;
-  showResult("promptResult", result);
-}
+Nama: ${val("nama")}
+Kontak: ${val("kontak") || "Tambahkan nomor HP atau email"}
+Posisi yang dituju: ${val("posisi")}
 
-function makeSEO() {
-  const t = value("topic");
-  if (!t) return alert("Isi topik konten dulu!");
-  const a = value("audience") || "pembaca umum";
-  const title = `${t}: Panduan Praktis untuk ${a}`;
-  const desc = `Pelajari ${t} melalui panduan praktis untuk ${a}. Temukan ide, tips, dan informasi yang bisa membantu kamu memulai.`;
-  const keywords = [t, `${t} terbaru`, `tips ${t}`, `panduan ${t}`, `${t} untuk pemula`];
-  showResult("seoResult", `IDE JUDUL:\n${title}\n\nDESKRIPSI:\n${desc}\n\nIDE KATA KUNCI:\n${keywords.join(", ")}\n\nCatatan: sesuaikan dengan isi artikel dan riset kata kunci sebelum diterbitkan.`);
-}
+PENDIDIKAN
+${val("pendidikan") || "Tambahkan pendidikan terakhir"}
 
-function transformText(mode) {
-  const el = document.getElementById("rawText");
-  let t = el.value;
-  if (mode === "upper") t = t.toUpperCase();
-  if (mode === "lower") t = t.toLowerCase();
-  if (mode === "title") t = t.toLowerCase().replace(/(^|\s)\S/g, c => c.toUpperCase());
-  if (mode === "clean") t = t.replace(/\s+/g, " ").trim();
-  el.value = t;
-  updateCount();
-  showResult("textResult", t || "Belum ada teks.");
-}
-function updateCount() {
-  const t = value("rawText");
-  const words = t ? t.split(/\s+/).length : 0;
-  document.getElementById("count").textContent = `${words} kata · ${document.getElementById("rawText").value.length} karakter`;
-}
-document.getElementById("rawText").addEventListener("input", updateCount);
+KEAHLIAN
+${val("skill") || "Tambahkan keahlian yang relevan"}
 
-function chatDemo() {
-  const q = value("chatInput").toLowerCase();
-  if (!q) return alert("Tulis pesan dulu!");
-  let answer;
-  if (q.includes("caption")) answer = "Coba buka fitur Generator Caption. Masukkan nama produk dan pilih gaya bahasa untuk membuat ide caption.";
-  else if (q.includes("prompt")) answer = "Buka fitur Prompt AI, masukkan subjek, lalu pilih gaya visual untuk menyusun prompt gambar atau video.";
-  else if (q.includes("seo")) answer = "Gunakan Generator SEO untuk mendapatkan ide judul, deskripsi, dan kata kunci berdasarkan topik.";
-  else if (q.includes("jualan") || q.includes("konten")) answer = "Ide konten: tampilkan masalah yang dialami pembeli, demo produk, detail keunggulan, lalu ajak penonton berkomentar. Sesuaikan dengan produk yang sebenarnya.";
-  else answer = "Terima kasih sudah mencoba PintarAI! Aku masih dalam mode demo. Coba fitur Caption, Prompt AI, SEO, atau Pengolah Teks di atas.";
-  showResult("chatResult", "Kamu: " + value("chatInput") + "\n\nPintarAI Demo: " + answer);
-}
-</script>
-</body>
-                 </html>
-                                   
+PENGALAMAN
+${val("pengalaman") || "Tambahkan pengalaman, proyek, atau kegiatan yang relevan"}
+
+PROFIL SINGKAT
+Saya memiliki motivasi untuk belajar, berkembang, dan memberikan kontribusi terbaik pada posisi ${val("posisi")}.`;
+      break;
+
+    case "surat":
+      if (!required("nama","perusahaan","posisi")) return;
+      output =
+`${val("nama")}
+[Alamat kamu]
+[Nomor HP / Email]
+
+Kepada Yth. Tim Rekrutmen
+${val("perusahaan")}
+
+Perihal: Lamaran Pekerjaan ${val("posisi")}
+
+Dengan hormat,
+
+Saya ${val("nama")} bermaksud mengajukan lamaran untuk posisi ${val("posisi")} di ${val("perusahaan")}. Saya tertarik untuk bergabung dan siap mempelajari tanggung jawab pekerjaan dengan sungguh-sungguh.
+
+${val("skill") ? "Keahlian atau pengalaman yang saya miliki: " + val("skill") + "." : "Saya siap menjelaskan keahlian dan pengalaman saya lebih lanjut dalam proses seleksi."}
+
+Saya berharap mendapat kesempatan untuk mengikuti tahapan seleksi berikutnya. Terima kasih atas waktu dan pertimbangannya.
+
+Hormat saya,
+
+${val("nama")}`;
+      break;
+
+    case "usaha": {
+      if (!required("minat","modal","waktu")) return;
+      const ideas = {
+        "Digital dan internet": [
+          "Jasa mengetik atau merapikan dokumen",
+          "Jasa desain sederhana untuk promosi usaha lokal",
+          "Membuat dan menjual template digital"
+        ],
+        "Kuliner": [
+          "Pre-order camilan atau makanan rumahan",
+          "Paket sarapan untuk tetangga atau pekerja",
+          "Minuman rumahan berdasarkan pesanan"
+        ],
+        "Fashion": [
+          "Reseller pakaian atau aksesori",
+          "Jasa foto produk fashion sederhana",
+          "Menjual aksesori pilihan dengan sistem pre-order"
+        ],
+        "Jasa": [
+          "Jasa bersih-bersih sesuai area dan kemampuan",
+          "Jasa membantu belanja atau mengantar barang",
+          "Jasa mengetik, merapikan dokumen, atau administrasi"
+        ],
+        "Kerajinan": [
+          "Membuat kartu ucapan dan hadiah personal",
+          "Kerajinan dekorasi sederhana sesuai pesanan",
+          "Paket hadiah custom dengan sistem pre-order"
+        ],
+        "Pertanian": [
+          "Menjual bibit atau tanaman kecil",
+          "Menanam sayuran dalam pot untuk dijual",
+          "Menjual media tanam atau perlengkapan berkebun"
+        ]
+      };
+      output = `IDE USAHA BERDASARKAN MINAT\n${val("minat")}\n\nModal: ${val("modal")}\nWaktu: ${val("waktu")}\n\nTiga ide untuk dipertimbangkan:\n${ideas[val("minat")].map((x,i) => `${i+1}. ${x}`).join("\n")}\n\nLANGKAH PERTAMA\n1. Pilih satu ide yang paling sesuai dengan kemampuanmu.\n2. Cari tahu apakah calon pelanggan benar-benar membutuhkannya.\n3. Hitung biaya, harga jual, dan risiko sebelum mengeluarkan uang.\n4. Mulai dari uji coba kecil. Tidak ada jaminan usaha langsung menghasilkan keuntungan.`;
+      break;
+    }
+
+    case "caption":
+      if (!required("produk")) return;
+      {
+        const styles = {
+          "Aesthetic": `Ada hal sederhana yang bikin hari terasa lebih istimewa ✨\nKenalan dengan ${val("produk")} — detail kecil, kesan yang berarti.\n\nSimpan dulu kalau kamu suka vibes seperti ini 🤍`,
+          "Lucu dan santai": `Katanya cuma lihat-lihat… eh malah kepikiran ${val("produk")} 😭✨\nSiapa yang relate?`,
+          "Persuasif": `Lagi mencari ${val("produk")}? ✨\nTemukan pilihan yang cocok untuk kebutuhanmu. Cari tahu detailnya dan pilih sesuai selera!`,
+          "Minimalis": `${val("produk")}.\nSederhana, menarik, dan punya cerita sendiri. ✨`,
+          "Inspiratif": `Hal kecil bisa membawa semangat baru.\nBiarkan ${val("produk")} jadi bagian dari cerita baikmu hari ini. 🌷`
+        };
+        output = `${styles[val("gaya")] || styles["Aesthetic"]}\n\n#${val("produk").replace(/[^a-zA-Z0-9]/g,"")} #Rekomendasi #Inspirasi`;
+        output += `\n\nCatatan: sesuaikan klaim dan hashtag dengan produk serta platform ${val("platform")}.`;
+      }
+      break;
+
+    case "prompt":
+      if (!required("subjek","gaya")) return;
+      output = `Buat gambar ${val("subjek")}, gaya visual ${val("gaya")}, latar ${val("latar") || "bersih dan estetik"}, pencahayaan lembut, komposisi profesional, detail tajam, warna harmonis, hasil berkualitas tinggi, tanpa teks yang tidak diperlukan. Rasio gambar ${val("rasio")}.`;
+      break;
+
+    case "seo":
+      if (!required("topik")) return;
+      output = `JUDUL SEO\n${val("topik")} — Informasi dan Pilihan untuk ${val("target") || "Semua Kebutuhan"}\n\nDESKRIPSI META\nTemukan informasi tentang ${val("topik")}. ${val("manfaat") || "Pelajari detail, manfaat, dan hal yang perlu dipertimbangkan sebelum memilih."} Sesuaikan pilihan dengan kebutuhanmu.\n\nKATA KUNCI AWAL\n${val("topik")}, informasi ${val("topik")}, manfaat ${val("topik")}, pilihan ${val("topik")}\n\nCatatan: ini draf awal. Periksa keakuratan isi dan riset kata kunci sebelum diterbitkan.`;
+      break;
+
+    case "teks":
+      if (!required("isi")) return;
+      {
+        const text = val("isi");
+        const action = val("aksi");
+        if (action === "Rapikan spasi") output = text.replace(/[ \t]+/g," ").replace(/\n{3,}/g,"\n\n").trim();
+        else if (action === "HURUF BESAR") output = text.toUpperCase();
+        else if (action === "huruf kecil") output = text.toLowerCase();
+        else if (action === "Awal Kalimat Kapital") output = text.toLowerCase().replace(/(^\s*[a-zà-ÿ]|[.!?]\s+[a-zà-ÿ])/g, s => s.toUpperCase());
+        else output = `Statistik teks:\nKata: ${(text.match(/\S+/g) || []).length}\nKarakter (termasuk spasi): ${text.length}\nKarakter (tanpa spasi): ${text.replace(/\s/g,"").length}\n\nTeks asli:\n${text}`;
+      }
+      break;
+
+    case "chat":
+      if (!required("pesan")) return;
+      {
+        const msg = val("pesan");
+        const lower = msg.toLowerCase();
+        let answer;
+        if (l
